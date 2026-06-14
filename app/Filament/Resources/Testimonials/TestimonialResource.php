@@ -5,35 +5,107 @@ namespace App\Filament\Resources\Testimonials;
 use App\Filament\Resources\Testimonials\Pages\CreateTestimonial;
 use App\Filament\Resources\Testimonials\Pages\EditTestimonial;
 use App\Filament\Resources\Testimonials\Pages\ListTestimonials;
-use App\Filament\Resources\Testimonials\Schemas\TestimonialForm;
 use App\Filament\Resources\Testimonials\Tables\TestimonialsTable;
 use App\Models\Testimonial;
 use BackedEnum;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 
 class TestimonialResource extends Resource
 {
     protected static ?string $model = Testimonial::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeftRight;
 
-    protected static ?string $recordTitleAttribute = 'Testimonial';
+    protected static ?string $recordTitleAttribute = 'nama';
+
+    public static function getNavigationIcon(): string|Htmlable|BackedEnum|null
+    {
+        return 'heroicon-o-chat-bubble-left-right';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Testimoni';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Homepage';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 5;
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Testimoni';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Daftar Testimoni';
+    }
 
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
-            Forms\Components\TextInput::make('nama')->required(),
-            Forms\Components\TextInput::make('jabatan')->required(),
-            Forms\Components\TextInput::make('kota')->required(),
-            Forms\Components\Textarea::make('isi')->required()->rows(4),
-            Forms\Components\Select::make('bintang')
-                ->options([5=>'★★★★★',4=>'★★★★',3=>'★★★'])->default(5),
-            Forms\Components\Toggle::make('featured')->default(false),
-            Forms\Components\Toggle::make('aktif')->default(true),
-            Forms\Components\TextInput::make('urutan')->numeric()->default(0),
+            Section::make('Identitas Pelanggan')->schema([
+                TextInput::make('nama')
+                    ->label('Nama Pelanggan')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('jabatan')
+                    ->label('Jabatan / Profesi')
+                    ->required()
+                    ->maxLength(255)
+                    ->placeholder('Manajer Tim Basket'),
+                TextInput::make('kota')
+                    ->label('Kota')
+                    ->required()
+                    ->maxLength(100)
+                    ->placeholder('Bandung'),
+            ])->columns(3),
+
+            Section::make('Isi Testimoni')->schema([
+                Textarea::make('isi')
+                    ->label('Isi Testimoni')
+                    ->required()
+                    ->rows(4)
+                    ->columnSpanFull(),
+                Select::make('bintang')
+                    ->label('Rating Bintang')
+                    ->options([
+                        5 => '★★★★★ (5 Bintang)',
+                        4 => '★★★★☆ (4 Bintang)',
+                        3 => '★★★☆☆ (3 Bintang)',
+                    ])
+                    ->default(5)
+                    ->required(),
+            ])->columns(1),
+
+            Section::make('Pengaturan')->schema([
+                Toggle::make('featured')
+                    ->label('Featured (tampil utama)')
+                    ->default(false),
+                Toggle::make('aktif')
+                    ->label('Aktif / Ditampilkan')
+                    ->default(true),
+                TextInput::make('urutan')
+                    ->label('Urutan')
+                    ->numeric()
+                    ->default(0),
+            ])->columns(3),
         ]);
     }
 
@@ -44,17 +116,15 @@ class TestimonialResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListTestimonials::route('/'),
+            'index'  => ListTestimonials::route('/'),
             'create' => CreateTestimonial::route('/create'),
-            'edit' => EditTestimonial::route('/{record}/edit'),
+            'edit'   => EditTestimonial::route('/{record}/edit'),
         ];
     }
 }

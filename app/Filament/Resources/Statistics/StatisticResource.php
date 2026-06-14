@@ -13,14 +13,45 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 
 class StatisticResource extends Resource
 {
     protected static ?string $model = Statistic::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChartBar;
 
-    protected static ?string $recordTitleAttribute = 'Statistic';
+    protected static ?string $recordTitleAttribute = 'label';
+
+    public static function getNavigationIcon(): string|Htmlable|BackedEnum|null
+    {
+        return 'heroicon-o-chart-bar';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Statistik';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Homepage';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 6;
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Statistik';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Data Statistik';
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -34,17 +65,15 @@ class StatisticResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListStatistics::route('/'),
+            'index'  => ListStatistics::route('/'),
             'create' => CreateStatistic::route('/create'),
-            'edit' => EditStatistic::route('/{record}/edit'),
+            'edit'   => EditStatistic::route('/{record}/edit'),
         ];
     }
 }
