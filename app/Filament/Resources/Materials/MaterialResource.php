@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Materials;
 
 use App\Filament\Resources\MaterialResource\Pages;
 use App\Models\Material;
