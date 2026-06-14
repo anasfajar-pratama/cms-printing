@@ -16,12 +16,7 @@ return [
 
         'public' => [
             'driver' => 'local',
-            // Jika PUBLIC_HTML_ROOT terdefinisi (dari public_html/index.php),
-            // upload file masuk langsung ke public_html/storage/ → bisa diakses via URL /storage/...
-            // Fallback ke storage/app/public untuk local development.
-            'root' => defined('PUBLIC_HTML_ROOT')
-                      ? PUBLIC_HTML_ROOT . '/storage'
-                      : storage_path('app/public'),
+            'root' => storage_path('app/public'),
             'url'  => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
