@@ -828,7 +828,7 @@
      HERO
 ═══════════════════════════════════════════════════ -->
 <section id="hero">
-    <div class="hero-machine-bg" style="background-image: url('{{ $heroMachineImg ? asset('storage/' . $heroMachineImg) : asset('storage/images/hero-mesin-cetak.png') }}');"></div>
+    <div class="hero-machine-bg" style="background-image: url('{{ $heroMachineImg ? asset('storage/' . $heroMachineImg) : asset('images/hero-mesin-cetak.png') }}');"></div>
     <div class="hero-body">
         <div class="hero-content">
             <div class="hero-eyebrow">{{ $hero?->eyebrow ?? 'Sejak 2017 · Produsen Resmi · Indonesia' }}</div>
@@ -955,7 +955,7 @@
                 </div>
                 <div class="about-img" style="height: 520px;">
                     @php $aboutImg = $settings->get('about_image'); @endphp
-                    <img src="{{ $aboutImg ? asset('storage/' . $aboutImg) : asset('storage/images/about-workshop.png') }}" alt="Workshop & Produksi {{ $siteName }}">
+                    <img src="{{ $aboutImg ? asset('storage/' . $aboutImg) : asset('images/about-workshop.png') }}" alt="Workshop & Produksi {{ $siteName }}">
                 </div>
                 <div class="about-prod-box">
                     <div class="prod-label">Produksi Sendiri</div>
@@ -1020,7 +1020,7 @@
             @empty
             {{-- Fallback statis jika belum ada data --}}
             <div class="layanan-card wide">
-                <img src="{{ asset('storage/images/layanan-jersey-custom.png') }}" alt="Custom Jersey" style="width:100%;height:100%;min-height:340px;object-fit:cover;filter:brightness(0.55);">
+                <img src="{{ asset('images/layanan-jersey-custom.png') }}" alt="Custom Jersey" style="width:100%;height:100%;min-height:340px;object-fit:cover;filter:brightness(0.55);">
                 <div class="layanan-card-top"><span class="layanan-card-tag">Full Print Sublimasi</span></div>
                 <div class="layanan-card-bottom">
                     <div class="layanan-card-name">Custom Jersey</div>
@@ -1033,7 +1033,7 @@
                 </div>
             </div>
             <div class="layanan-card">
-                <img src="{{ asset('storage/images/layanan-textile-printing.png') }}" alt="Textile Printing" style="width:100%;height:100%;min-height:170px;object-fit:cover;filter:brightness(0.55);">
+                <img src="{{ asset('images/layanan-textile-printing.png') }}" alt="Textile Printing" style="width:100%;height:100%;min-height:170px;object-fit:cover;filter:brightness(0.55);">
                 <div class="layanan-card-top">
                     <span class="layanan-card-tag">Kain Meteran</span>
                     <div class="layanan-card-link"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
@@ -1044,7 +1044,7 @@
                 </div>
             </div>
             <div class="layanan-card">
-                <img src="{{ asset('storage/images/layanan-hijab-printing.png') }}" alt="Hijab Printing" style="width:100%;height:100%;min-height:170px;object-fit:cover;filter:brightness(0.55);">
+                <img src="{{ asset('images/layanan-hijab-printing.png') }}" alt="Hijab Printing" style="width:100%;height:100%;min-height:170px;object-fit:cover;filter:brightness(0.55);">
                 <div class="layanan-card-top">
                     <span class="layanan-card-tag">Hijab Terpercaya</span>
                     <div class="layanan-card-link"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
@@ -1338,23 +1338,23 @@
             @empty
             {{-- Fallback statis --}}
             <div class="portfolio-card large">
-                <img src="{{ asset('storage/images/portfolio-jersey-basket.png') }}" alt="Jersey Basket" style="width:100%;height:100%;min-height:568px;object-fit:cover;">
+                <img src="{{ asset('images/portfolio-jersey-basket.png') }}" alt="Jersey Basket" style="width:100%;height:100%;min-height:568px;object-fit:cover;">
                 <div class="portfolio-card-info"><div class="portfolio-card-cat">Basket</div><div class="portfolio-card-title">Jersey Basket — Team Rising Star</div></div>
             </div>
             <div class="portfolio-card" style="grid-column: 2; grid-row: 1;">
-                <img src="{{ asset('storage/images/portfolio-sublimasi.png') }}" alt="Sublimation Printing" style="width:100%;height:100%;object-fit:cover;">
+                <img src="{{ asset('images/portfolio-sublimasi.png') }}" alt="Sublimation Printing" style="width:100%;height:100%;object-fit:cover;">
                 <div class="portfolio-card-info"><div class="portfolio-card-cat">Textile</div><div class="portfolio-card-title">Sublimation Printing — Batch 200pcs</div></div>
             </div>
             <div class="portfolio-card" style="grid-column: 2; grid-row: 2;">
-                <img src="{{ asset('storage/images/portfolio-hijab-voal.png') }}" alt="Hijab Voal Printing" style="width:100%;height:100%;object-fit:cover;">
+                <img src="{{ asset('images/portfolio-hijab-voal.png') }}" alt="Hijab Voal Printing" style="width:100%;height:100%;object-fit:cover;">
                 <div class="portfolio-card-info"><div class="portfolio-card-cat">Hijab</div><div class="portfolio-card-title">Voal Printing — Double Z Collection</div></div>
             </div>
             <div class="portfolio-card" style="grid-column: 3; grid-row: 1;">
-                <img src="{{ asset('storage/images/portfolio-workshop-jahit.png') }}" alt="Workshop Jahit" style="width:100%;height:100%;object-fit:cover;">
+                <img src="{{ asset('images/portfolio-workshop-jahit.png') }}" alt="Workshop Jahit" style="width:100%;height:100%;object-fit:cover;">
                 <div class="portfolio-card-info"><div class="portfolio-card-cat">Workshop</div><div class="portfolio-card-title">Line Produksi Jahit — Internal</div></div>
             </div>
             <div class="portfolio-card" style="grid-column: 3; grid-row: 2;">
-                <img src="{{ asset('storage/images/portfolio-kain-premium.png') }}" alt="Kain Premium" style="width:100%;height:100%;object-fit:cover;">
+                <img src="{{ asset('images/portfolio-kain-premium.png') }}" alt="Kain Premium" style="width:100%;height:100%;object-fit:cover;">
                 <div class="portfolio-card-info"><div class="portfolio-card-cat">Material</div><div class="portfolio-card-title">Kain Premium In-House</div></div>
             </div>
             @endforelse
