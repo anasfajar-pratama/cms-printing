@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Materials;
 
-use App\Filament\Resources\MaterialResource\Pages;
+use App\Filament\Resources\Materials\Pages;
 use App\Models\Material;
 use BackedEnum;
 use Filament\Forms\Components\Select;
