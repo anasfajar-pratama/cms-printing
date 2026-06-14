@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $settings->get('meta_title', $settings->get('site_name', 'DZ Jersey Pro') . ' — Produsen Jersey Custom & Textile Printing') }}</title>
-    <meta name="description" content="{{ $settings->get('meta_description', 'Produsen jersey custom, kain printing, dan hijab printing premium dengan kualitas terbaik, harga transparan, dan pengerjaan terpercaya.') }}">
+    <title>DZ Jersey Pro — Produsen Jersey Custom & Textile Printing</title>
+    <meta name="description" content="Produsen jersey custom, kain printing, dan hijab printing premium dengan kualitas terbaik, harga transparan, dan pengerjaan terpercaya.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -146,30 +146,11 @@
             padding-top: 64px; min-height: 100vh;
             display: flex; flex-direction: column;
             background: var(--bg);
-            position: relative; overflow: hidden;
-        }
-        .hero-machine-bg {
-            position: absolute;
-            top: 0; right: 0;
-            width: 58%;
-            bottom: 90px;
-            background-size: cover;
-            background-position: center left;
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.85) 100%);
-            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.85) 100%);
-            opacity: 0.5;
-            pointer-events: none;
-        }
-        .hero-body {
-            flex: 1; display: flex; flex-direction: column;
-            justify-content: center;
-            position: relative; z-index: 1;
-            max-width: 1140px; margin: 0 auto; width: 100%;
-            padding: 80px 24px 80px;
         }
         .hero-content {
-            display: flex; flex-direction: column;
-            max-width: 580px;
+            flex: 1; display: flex; flex-direction: column;
+            justify-content: center; padding: 80px 24px 0;
+            max-width: 800px;
         }
         .hero-eyebrow {
             display: flex; align-items: center; gap: 10px;
@@ -561,11 +542,11 @@
             display: block; filter: brightness(0.7); transition: all 0.4s;
         }
         .portfolio-card:hover img { filter: brightness(0.5); transform: scale(1.03); }
-        .portfolio-card-ph {
+        .portfolio-card-img-ph {
             width: 100%; height: 280px;
             background: linear-gradient(135deg, var(--bg3) 0%, #222 100%);
         }
-        .portfolio-card.large .portfolio-card-ph { height: 568px; }
+        .portfolio-card.large .portfolio-card-img-ph { height: 568px; }
         .portfolio-card-info {
             position: absolute; bottom: 0; left: 0; right: 0;
             padding: 14px 16px;
@@ -746,6 +727,7 @@
             border: 1px solid var(--border); border-top: none; padding: 20px 24px;
             flex-wrap: wrap; gap: 16px;
         }
+        .kontak-bottom-text {}
         .kontak-bottom-text .title {
             font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: #fff;
         }
@@ -768,22 +750,19 @@
         footer .copy { font-size: 12px; color: var(--text-muted); letter-spacing: 0.05em; }
         footer .tags { font-size: 12px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
+        /* ─── IMAGE PLACEHOLDER ─── */
+        .img-ph {
+            background: var(--bg3);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted); font-size: 13px; text-align: center;
+        }
+
         /* ─── SMOOTH ANIMATIONS ─── */
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
-
-@php
-    $waJersey = $settings->get('wa_jersey', '6281382805858');
-    $waHijab  = $settings->get('wa_hijab',  '6282345556927');
-    $siteName = $settings->get('site_name',  'DZ Jersey Pro');
-    $instagram = $settings->get('instagram', 'dzscarve');
-    $email     = $settings->get('email',     'cs@dzjerseypro.co.id');
-    $mapsUrl   = $settings->get('maps_url',  'https://maps.google.com');
-    $heroMachineImg = $settings->get('hero_machine_image');
-@endphp
 
 <!-- ═══════════════════════════════════════════════════
      NAVBAR
@@ -793,7 +772,7 @@
         <a href="#" class="navbar-logo">
             <div class="logo-box">DZ</div>
             <div class="logo-text">
-                <div class="name">{{ $siteName }}</div>
+                <div class="name">DZ Jersey Pro</div>
                 <div class="sub">Double Z Scarve</div>
             </div>
         </a>
@@ -805,7 +784,7 @@
             <a href="#portfolio">Portfolio</a>
             <a href="#kontak">Kontak</a>
         </div>
-        <a href="https://wa.me/{{ $waJersey }}" target="_blank" class="navbar-cta">
+        <a href="https://wa.me/6281382805858" target="_blank" class="navbar-cta">
             Request Penawaran
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
@@ -820,7 +799,7 @@
         <a href="#material">Material</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#kontak">Kontak</a>
-        <a href="https://wa.me/{{ $waJersey }}" target="_blank" class="btn btn-orange">Request Penawaran</a>
+        <a href="https://wa.me/6281382805858" target="_blank" class="btn btn-orange">Request Penawaran</a>
     </div>
 </header>
 
@@ -828,63 +807,57 @@
      HERO
 ═══════════════════════════════════════════════════ -->
 <section id="hero">
-    <div class="hero-machine-bg" style="background-image: url('{{ $heroMachineImg ? asset('storage/' . $heroMachineImg) : asset('storage/images/hero-mesin-cetak.png') }}');"></div>
-    <div class="hero-body">
-        <div class="hero-content">
-            <div class="hero-eyebrow">{{ $hero?->eyebrow ?? 'Sejak 2017 · Produsen Resmi · Indonesia' }}</div>
-            <h1 class="hero-title">
-                {{ $hero?->title_line1 ?? 'Produsen Jersey Custom' }}<br>
-                <span class="amp">&amp;</span>
-                {{ $hero?->title_line2 ?? 'Textile Printing' }}<br>
-                <span class="italic-word">{{ $hero?->title_line3 ?? 'Berkualitas.' }}</span>
-            </h1>
-            <p class="hero-desc">
-                {{ $hero?->description ?? 'Melayani produksi jersey custom, kain printing, dan hijab printing premium dengan kualitas terbaik, harga transparan, dan pengerjaan terpercaya.' }}
-            </p>
-            <div class="hero-actions">
-                <a href="{{ $hero?->btn1_url ?? 'https://wa.me/' . $waJersey }}" target="_blank" class="btn btn-green">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.989.58 3.842 1.582 5.402L2 22l4.744-1.546A9.96 9.96 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2zm0 18.198a8.19 8.19 0 01-4.187-1.148l-.299-.178-3.108 1.015 1.039-3.008-.196-.31A8.196 8.196 0 013.8 12c0-4.519 3.679-8.198 8.198-8.198S20.196 7.481 20.196 12c0 4.519-3.679 8.198-8.198 8.198z"/></svg>
-                    {{ $hero?->btn1_label ?? 'Konsultasi Sekarang' }}
-                </a>
-                <a href="{{ $hero?->btn2_url ?? 'https://wa.me/' . $waJersey }}" target="_blank" class="btn btn-orange">
-                    {{ $hero?->btn2_label ?? 'Request Penawaran' }}
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <a href="{{ $hero?->btn3_url ?? '#portfolio' }}" class="btn btn-outline">{{ $hero?->btn3_label ?? 'Lihat Portfolio' }}</a>
-            </div>
+    <div class="hero-content container">
+        <div class="hero-eyebrow">Sejak 2017 · Produsen Resmi · Indonesia</div>
+        <h1 class="hero-title">
+            Produsen Jersey Custom<br>
+            <span class="amp">&amp;</span>
+            Textile Printing<br>
+            <span class="italic-word">Berkualitas.</span>
+        </h1>
+        <p class="hero-desc">
+            Melayani produksi jersey custom, kain printing, dan hijab printing premium
+            dengan kualitas terbaik, harga transparan, dan pengerjaan terpercaya.
+        </p>
+        <div class="hero-actions">
+            <a href="https://wa.me/6281382805858" target="_blank" class="btn btn-green">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.989.58 3.842 1.582 5.402L2 22l4.744-1.546A9.96 9.96 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2zm0 18.198a8.19 8.19 0 01-4.187-1.148l-.299-.178-3.108 1.015 1.039-3.008-.196-.31A8.196 8.196 0 013.8 12c0-4.519 3.679-8.198 8.198-8.198S20.196 7.481 20.196 12c0 4.519-3.679 8.198-8.198 8.198z"/></svg>
+                Konsultasi Sekarang
+            </a>
+            <a href="https://wa.me/6281382805858" target="_blank" class="btn btn-orange">
+                Request Penawaran
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#portfolio" class="btn btn-outline">Lihat Portfolio</a>
         </div>
     </div>
 
-    {{-- ── Cert Bar (Trust Features dari DB, fallback ke statis) ── --}}
     <div class="cert-bar">
         <div class="cert-bar-inner">
-            @forelse($trustFeatures->take(4) as $tf)
+            <div class="cert-item">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div class="cert-info">Sertifikasi <strong>Terdaftar DJKI</strong></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <div class="cert-info">Sertifikasi <strong>Workshop Sendiri</strong></div>
+            </div>
             <div class="cert-item">
                 <div class="cert-icon">
                     <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 </div>
-                <div class="cert-info">
-                    Sertifikasi <strong>{{ $tf->judul }}</strong>
-                </div>
-            </div>
-            @empty
-            <div class="cert-item">
-                <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                <div class="cert-info">Sertifikasi <strong>Terdaftar DJKI</strong></div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-                <div class="cert-info">Sertifikasi <strong>Workshop Sendiri</strong></div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
                 <div class="cert-info">Sertifikasi <strong>Amanah &amp; Bergaransi</strong></div>
             </div>
             <div class="cert-item">
-                <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg></div>
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+                </div>
                 <div class="cert-info">Sertifikasi <strong>Seluruh Indonesia</strong></div>
             </div>
-            @endforelse
         </div>
     </div>
 </section>
@@ -913,39 +886,35 @@
                     di <strong>Direktorat Jenderal Kekayaan Intelektual (DJKI / Dirjen HAKI)</strong>,
                     sebagai bentuk komitmen terhadap keaslian brand dan kepercayaan pelanggan.</p>
                 </div>
-
-                {{-- ── Statistik dari DB ── --}}
                 <div class="about-stats">
-                    @forelse($statistics->take(4) as $stat)
                     <div class="stat-item">
                         <div class="stat-icon">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 3.13a4 4 0 010 7.75"/><path d="M21 21v-2a4 4 0 00-3-3.87"/></svg>
                         </div>
-                        <div class="stat-num">{{ $stat->nilai }}</div>
-                        <div class="stat-label">{{ $stat->label }}</div>
-                    </div>
-                    @empty
-                    <div class="stat-item">
-                        <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg></div>
                         <div class="stat-num">10.000+</div>
                         <div class="stat-label">Jersey Diproduksi</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
                         <div class="stat-num">800+</div>
                         <div class="stat-label">Klien Amanah</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
                         <div class="stat-num">7+ thn</div>
                         <div class="stat-label">Pengalaman</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
                         <div class="stat-num">DJKI</div>
                         <div class="stat-label">Brand Terdaftar</div>
                     </div>
-                    @endforelse
                 </div>
             </div>
             <div class="about-right">
@@ -953,9 +922,9 @@
                     <div class="label">Legalitas</div>
                     <div class="value">TERDAFTAR DJKI</div>
                 </div>
-                <div class="about-img" style="height: 520px;">
-                    @php $aboutImg = $settings->get('about_image'); @endphp
-                    <img src="{{ $aboutImg ? asset('storage/' . $aboutImg) : asset('storage/images/about-workshop.png') }}" alt="Workshop & Produksi {{ $siteName }}">
+                <div class="about-img img-ph" style="height: 520px;">
+                    {{-- Ganti dengan foto workshop Anda --}}
+                    <span>Foto Workshop / Produksi</span>
                 </div>
                 <div class="about-prod-box">
                     <div class="prod-label">Produksi Sendiri</div>
@@ -987,41 +956,14 @@
         </div>
 
         <div class="layanan-grid">
-            @forelse($layanan as $item)
-            <div class="layanan-card {{ $item->is_wide ? 'wide' : '' }}">
-                @if($item->foto_url)
-                    <img src="{{ $item->foto_url }}" alt="{{ $item->nama }}"
-                         style="width:100%;height:100%;{{ $item->is_wide ? 'min-height:340px;' : 'min-height:170px;' }}object-fit:cover;filter:brightness(0.55);">
-                @else
-                    <div class="layanan-card-img-placeholder"></div>
-                @endif
-                <div class="layanan-card-top">
-                    <span class="layanan-card-tag">{{ $item->tag }}</span>
-                    @if(!$item->is_wide)
-                    <div class="layanan-card-link">
-                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                    </div>
-                    @endif
-                </div>
-                <div class="layanan-card-bottom">
-                    <div class="layanan-card-name">{{ $item->nama }}</div>
-                    @if($item->deskripsi && !$item->is_wide)
-                        <div class="layanan-card-sub">{{ $item->deskripsi }}</div>
-                    @endif
-                    @if($item->checklist && count($item->checklist) > 0)
-                    <ul class="layanan-card-checks">
-                        @foreach($item->checklist as $check)
-                        <li>{{ $check['item'] ?? $check }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-                </div>
-            </div>
-            @empty
-            {{-- Fallback statis jika belum ada data --}}
+            <!-- Custom Jersey (wide, 2 cols) -->
             <div class="layanan-card wide">
-                <img src="{{ asset('storage/images/layanan-jersey-custom.png') }}" alt="Custom Jersey" style="width:100%;height:100%;min-height:340px;object-fit:cover;filter:brightness(0.55);">
-                <div class="layanan-card-top"><span class="layanan-card-tag">Full Print Sublimasi</span></div>
+                <div class="layanan-card-img-placeholder img-ph" style="height:100%; min-height: 340px;">
+                    {{-- Foto koleksi jersey --}}
+                </div>
+                <div class="layanan-card-top">
+                    <span class="layanan-card-tag">Full Print Sublimasi</span>
+                </div>
                 <div class="layanan-card-bottom">
                     <div class="layanan-card-name">Custom Jersey</div>
                     <ul class="layanan-card-checks">
@@ -1032,32 +974,41 @@
                     </ul>
                 </div>
             </div>
+            <!-- Textile Printing -->
             <div class="layanan-card">
-                <img src="{{ asset('storage/images/layanan-textile-printing.png') }}" alt="Textile Printing" style="width:100%;height:100%;min-height:170px;object-fit:cover;filter:brightness(0.55);">
+                <div class="layanan-card-img-placeholder img-ph" style="height: 100%; min-height: 170px;">
+                    {{-- Foto textile printing --}}
+                </div>
                 <div class="layanan-card-top">
                     <span class="layanan-card-tag">Kain Meteran</span>
-                    <div class="layanan-card-link"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+                    <div class="layanan-card-link">
+                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </div>
                 </div>
                 <div class="layanan-card-bottom">
                     <div class="layanan-card-name">Textile Printing</div>
                     <div class="layanan-card-sub">Sublimation &amp; DTG · Print kain roll / lembaran</div>
                 </div>
             </div>
+            <!-- Hijab -->
             <div class="layanan-card">
-                <img src="{{ asset('storage/images/layanan-hijab-printing.png') }}" alt="Hijab Printing" style="width:100%;height:100%;min-height:170px;object-fit:cover;filter:brightness(0.55);">
+                <div class="layanan-card-img-placeholder img-ph" style="height: 100%; min-height: 170px;">
+                    {{-- Foto hijab printing --}}
+                </div>
                 <div class="layanan-card-top">
                     <span class="layanan-card-tag">Hijab Terpercaya</span>
-                    <div class="layanan-card-link"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+                    <div class="layanan-card-link">
+                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </div>
                 </div>
                 <div class="layanan-card-bottom">
                     <div class="layanan-card-name">Hijab Printing Custom</div>
                     <div class="layanan-card-sub">Voal, Satin Velvet, Ceruti · Jahitan neci / laser cut</div>
                 </div>
             </div>
-            @endforelse
         </div>
 
-        <a href="https://wa.me/{{ $waJersey }}" target="_blank" class="layanan-wa">
+        <a href="https://wa.me/6281382805858" target="_blank" class="layanan-wa">
             Tanya via WhatsApp
             <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
@@ -1106,6 +1057,12 @@
                 <div class="kalk-field">
                     <label>Pilih Bahan</label>
                     <select class="kalk-select" id="kalkBahan" onchange="updateEstimasi()">
+                        <option value="65000">Dry Fit — Rp 65.000/pcs</option>
+                        <option value="85000">Milano — Rp 85.000/pcs</option>
+                        <option value="75000">Drifit Polos — Rp 75.000/pcs</option>
+                        <option value="80000">Diadora — Rp 80.000/pcs</option>
+                        <option value="70000">Paragon — Rp 70.000/pcs</option>
+                        <option value="120000">Parasut — Rp 120.000/pcs</option>
                     </select>
                 </div>
                 <div class="kalk-field">
@@ -1147,79 +1104,44 @@
         </h2>
     </div>
 
-    {{-- ── Marquee Row 1 (nama-nama material dari DB) ── --}}
+    <!-- Marquee Row 1 -->
     <div class="marquee-wrap" style="margin-top: 40px;">
         <div class="marquee-track">
-            @forelse($materials->take(6) as $mat)
-                <span class="marquee-item">{{ $mat->nama }}</span>
-                <span class="marquee-dot"></span>
-            @empty
-                <span class="marquee-item">Satin Velvet</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item">Voal Premium</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item">Dry Fit</span>
-                <span class="marquee-dot"></span>
-            @endforelse
-            {{-- Duplikat untuk efek infinite scroll --}}
-            @forelse($materials->take(6) as $mat)
-                <span class="marquee-item">{{ $mat->nama }}</span>
-                <span class="marquee-dot"></span>
-            @empty
-                <span class="marquee-item">Satin Velvet</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item">Voal Premium</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item">Dry Fit</span>
-                <span class="marquee-dot"></span>
-            @endforelse
+            <span class="marquee-item">Satin Velvet</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Voal Premium</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Dry Fit</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Satin Velvet</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Voal Premium</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item">Dry Fit</span>
+            <span class="marquee-dot"></span>
         </div>
     </div>
 
-    {{-- ── Marquee Row 2 (material lanjutan, warna orange) ── --}}
+    <!-- Marquee Row 2 -->
     <div class="marquee-wrap reverse" style="margin-bottom: 60px;">
         <div class="marquee-track marquee-track-2">
-            @forelse($materials->skip(6)->take(6) as $mat)
-                <span class="marquee-item orange">{{ $mat->nama }}</span>
-                <span class="marquee-dot"></span>
-            @empty
-                <span class="marquee-item orange">Milano</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item orange">Ceruti Babydoll</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item orange">Paragon</span>
-                <span class="marquee-dot"></span>
-            @endforelse
-            @forelse($materials->skip(6)->take(6) as $mat)
-                <span class="marquee-item orange">{{ $mat->nama }}</span>
-                <span class="marquee-dot"></span>
-            @empty
-                <span class="marquee-item orange">Milano</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item orange">Ceruti Babydoll</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item orange">Paragon</span>
-                <span class="marquee-dot"></span>
-            @endforelse
+            <span class="marquee-item orange">Milano</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item orange">Ceruti Babydoll</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item orange">Paragon</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item orange">Milano</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item orange">Ceruti Babydoll</span>
+            <span class="marquee-dot"></span>
+            <span class="marquee-item orange">Paragon</span>
+            <span class="marquee-dot"></span>
         </div>
     </div>
 
-    {{-- ── Material Grid ── --}}
     <div class="container">
         <div class="material-grid">
-            @forelse($materials as $i => $mat)
-            <div class="material-card">
-                <div class="material-num">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</div>
-                <div class="material-cat">{{ ucfirst($mat->kategori) }}</div>
-                <div class="material-name">{{ $mat->nama }}</div>
-                <div class="material-desc">{{ $mat->deskripsi ?? 'Material premium pilihan untuk kebutuhan printing Anda.' }}</div>
-                <div class="material-price-row">
-                    <div class="material-mulai">Mulai</div>
-                    <div class="material-price">{{ $mat->harga_format }}<span>/pcs</span></div>
-                </div>
-            </div>
-            @empty
-            {{-- Fallback statis --}}
             <div class="material-card">
                 <div class="material-num">01</div>
                 <div class="material-cat">Jersey</div>
@@ -1250,7 +1172,66 @@
                     <div class="material-price">Rp 75.000<span>/pcs</span></div>
                 </div>
             </div>
-            @endforelse
+            <div class="material-card">
+                <div class="material-num">04</div>
+                <div class="material-cat">Jersey</div>
+                <div class="material-name">Diadora</div>
+                <div class="material-desc">Serat tebal, tidak nerawang, warna pekat dan kontras.</div>
+                <div class="material-price-row">
+                    <div class="material-mulai">Mulai</div>
+                    <div class="material-price">Rp 80.000<span>/pcs</span></div>
+                </div>
+            </div>
+            <div class="material-card">
+                <div class="material-num">05</div>
+                <div class="material-cat">Sport</div>
+                <div class="material-name">Paragon</div>
+                <div class="material-desc">Elastis, cepat kering, permukaan halus untuk print sublim.</div>
+                <div class="material-price-row">
+                    <div class="material-mulai">Mulai</div>
+                    <div class="material-price">Rp 70.000<span>/pcs</span></div>
+                </div>
+            </div>
+            <div class="material-card">
+                <div class="material-num">06</div>
+                <div class="material-cat">Jaket</div>
+                <div class="material-name">Parasut</div>
+                <div class="material-desc">Ringan anti-gerimis, ideal untuk training jacket &amp; outerwear.</div>
+                <div class="material-price-row">
+                    <div class="material-mulai">Mulai</div>
+                    <div class="material-price">Rp 120.000<span>/pcs</span></div>
+                </div>
+            </div>
+            <div class="material-card">
+                <div class="material-num">07</div>
+                <div class="material-cat">Hijab</div>
+                <div class="material-name">Satin Velvet</div>
+                <div class="material-desc">Sutra sintetis dengan kilau lembut — elegan untuk hijab premium.</div>
+                <div class="material-price-row">
+                    <div class="material-mulai">Mulai</div>
+                    <div class="material-price">Rp 55.000<span>/pcs</span></div>
+                </div>
+            </div>
+            <div class="material-card">
+                <div class="material-num">08</div>
+                <div class="material-cat">Hijab</div>
+                <div class="material-name">Voal Premium</div>
+                <div class="material-desc">Ringan, adem, warna sablon halus — bestseller hijab printing.</div>
+                <div class="material-price-row">
+                    <div class="material-mulai">Mulai</div>
+                    <div class="material-price">Rp 45.000<span>/pcs</span></div>
+                </div>
+            </div>
+            <div class="material-card">
+                <div class="material-num">09</div>
+                <div class="material-cat">Hijab</div>
+                <div class="material-name">Ceruti Babydoll</div>
+                <div class="material-desc">Flowy &amp; jatuh cantik, pilihan tren hijab syar'i modern.</div>
+                <div class="material-price-row">
+                    <div class="material-mulai">Mulai</div>
+                    <div class="material-price">Rp 50.000<span>/pcs</span></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1265,99 +1246,54 @@
                 Hasil nyata dari <span class="italic-word">workshop</span><br>
                 <span class="orange">kami sendiri.</span>
             </h2>
-            <a href="https://instagram.com/{{ $instagram }}" target="_blank" class="portfolio-ig">
+            <a href="https://instagram.com/dzscarve" target="_blank" class="portfolio-ig">
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                @{{ $instagram }}
+                @dzscarve
                 <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
             </a>
         </div>
 
         <div class="portfolio-grid">
-            @forelse($portfolios->take(5) as $i => $pf)
-                @if($i === 0)
-                <div class="portfolio-card large">
-                    @if($pf->foto_url)
-                        <img src="{{ $pf->foto_url }}" alt="{{ $pf->judul }}" style="width:100%;height:100%;min-height:568px;object-fit:cover;">
-                    @else
-                        <div class="portfolio-card-ph"></div>
-                    @endif
-                    <div class="portfolio-card-info">
-                        <div class="portfolio-card-cat">{{ ucfirst($pf->kategori) }}</div>
-                        <div class="portfolio-card-title">{{ $pf->judul }}</div>
-                    </div>
-                </div>
-                @elseif($i === 1)
-                <div class="portfolio-card" style="grid-column: 2; grid-row: 1;">
-                    @if($pf->foto_url)
-                        <img src="{{ $pf->foto_url }}" alt="{{ $pf->judul }}" style="width:100%;height:100%;object-fit:cover;">
-                    @else
-                        <div class="portfolio-card-ph"></div>
-                    @endif
-                    <div class="portfolio-card-info">
-                        <div class="portfolio-card-cat">{{ ucfirst($pf->kategori) }}</div>
-                        <div class="portfolio-card-title">{{ $pf->judul }}</div>
-                    </div>
-                </div>
-                @elseif($i === 2)
-                <div class="portfolio-card" style="grid-column: 2; grid-row: 2;">
-                    @if($pf->foto_url)
-                        <img src="{{ $pf->foto_url }}" alt="{{ $pf->judul }}" style="width:100%;height:100%;object-fit:cover;">
-                    @else
-                        <div class="portfolio-card-ph"></div>
-                    @endif
-                    <div class="portfolio-card-info">
-                        <div class="portfolio-card-cat">{{ ucfirst($pf->kategori) }}</div>
-                        <div class="portfolio-card-title">{{ $pf->judul }}</div>
-                    </div>
-                </div>
-                @elseif($i === 3)
-                <div class="portfolio-card" style="grid-column: 3; grid-row: 1;">
-                    @if($pf->foto_url)
-                        <img src="{{ $pf->foto_url }}" alt="{{ $pf->judul }}" style="width:100%;height:100%;object-fit:cover;">
-                    @else
-                        <div class="portfolio-card-ph"></div>
-                    @endif
-                    <div class="portfolio-card-info">
-                        <div class="portfolio-card-cat">{{ ucfirst($pf->kategori) }}</div>
-                        <div class="portfolio-card-title">{{ $pf->judul }}</div>
-                    </div>
-                </div>
-                @else
-                <div class="portfolio-card" style="grid-column: 3; grid-row: 2;">
-                    @if($pf->foto_url)
-                        <img src="{{ $pf->foto_url }}" alt="{{ $pf->judul }}" style="width:100%;height:100%;object-fit:cover;">
-                    @else
-                        <div class="portfolio-card-ph"></div>
-                    @endif
-                    <div class="portfolio-card-info">
-                        <div class="portfolio-card-cat">{{ ucfirst($pf->kategori) }}</div>
-                        <div class="portfolio-card-title">{{ $pf->judul }}</div>
-                    </div>
-                </div>
-                @endif
-            @empty
-            {{-- Fallback statis --}}
+            <!-- Large left -->
             <div class="portfolio-card large">
-                <img src="{{ asset('storage/images/portfolio-jersey-basket.png') }}" alt="Jersey Basket" style="width:100%;height:100%;min-height:568px;object-fit:cover;">
-                <div class="portfolio-card-info"><div class="portfolio-card-cat">Basket</div><div class="portfolio-card-title">Jersey Basket — Team Rising Star</div></div>
+                <div class="portfolio-card-img-ph img-ph" style="height:100%; min-height: 568px;"></div>
+                <div class="portfolio-card-info">
+                    <div class="portfolio-card-cat">Basket</div>
+                    <div class="portfolio-card-title">Jersey Basket — Team Rising Star</div>
+                </div>
             </div>
+            <!-- Top right -->
             <div class="portfolio-card" style="grid-column: 2; grid-row: 1;">
-                <img src="{{ asset('storage/images/portfolio-sublimasi.png') }}" alt="Sublimation Printing" style="width:100%;height:100%;object-fit:cover;">
-                <div class="portfolio-card-info"><div class="portfolio-card-cat">Textile</div><div class="portfolio-card-title">Sublimation Printing — Batch 200pcs</div></div>
+                <div class="portfolio-card-img-ph img-ph"></div>
+                <div class="portfolio-card-info">
+                    <div class="portfolio-card-cat">Textile</div>
+                    <div class="portfolio-card-title">Sublimation Printing — Batch 200pcs</div>
+                </div>
             </div>
+            <!-- Bottom right -->
             <div class="portfolio-card" style="grid-column: 2; grid-row: 2;">
-                <img src="{{ asset('storage/images/portfolio-hijab-voal.png') }}" alt="Hijab Voal Printing" style="width:100%;height:100%;object-fit:cover;">
-                <div class="portfolio-card-info"><div class="portfolio-card-cat">Hijab</div><div class="portfolio-card-title">Voal Printing — Double Z Collection</div></div>
+                <div class="portfolio-card-img-ph img-ph"></div>
+                <div class="portfolio-card-info">
+                    <div class="portfolio-card-cat">Hijab</div>
+                    <div class="portfolio-card-title">Voal Printing — Double Z Collection</div>
+                </div>
             </div>
+            <!-- Top far right -->
             <div class="portfolio-card" style="grid-column: 3; grid-row: 1;">
-                <img src="{{ asset('storage/images/portfolio-workshop-jahit.png') }}" alt="Workshop Jahit" style="width:100%;height:100%;object-fit:cover;">
-                <div class="portfolio-card-info"><div class="portfolio-card-cat">Workshop</div><div class="portfolio-card-title">Line Produksi Jahit — Internal</div></div>
+                <div class="portfolio-card-img-ph img-ph"></div>
+                <div class="portfolio-card-info">
+                    <div class="portfolio-card-cat">Workshop</div>
+                    <div class="portfolio-card-title">Line Produksi Jahit — Internal</div>
+                </div>
             </div>
+            <!-- Middle far right -->
             <div class="portfolio-card" style="grid-column: 3; grid-row: 2;">
-                <img src="{{ asset('storage/images/portfolio-kain-premium.png') }}" alt="Kain Premium" style="width:100%;height:100%;object-fit:cover;">
-                <div class="portfolio-card-info"><div class="portfolio-card-cat">Material</div><div class="portfolio-card-title">Kain Premium In-House</div></div>
+                <div class="portfolio-card-img-ph img-ph"></div>
+                <div class="portfolio-card-info">
+                    <div class="portfolio-card-cat">Material</div>
+                    <div class="portfolio-card-title">Kain Premium In-House</div>
+                </div>
             </div>
-            @endforelse
         </div>
 
         <p style="margin-top: 20px; font-size: 13px; color: var(--text-muted);">
@@ -1374,17 +1310,6 @@
         <div class="section-label">Testimoni Customer</div>
         <h2 class="testi-title">Yang mereka percayakan pada<br>kami.</h2>
         <div class="testi-grid">
-            @forelse($testimonials as $t)
-            <div class="testi-card">
-                <div class="testi-quote">"</div>
-                <p class="testi-text">"{{ $t->isi }}"</p>
-                <div class="testi-stars">
-                    @for($s = 0; $s < ($t->bintang ?? 5); $s++)★@endfor
-                </div>
-                <div class="testi-name">{{ $t->nama }}</div>
-                <div class="testi-role">{{ $t->jabatan }} — {{ $t->kota }}</div>
-            </div>
-            @empty
             <div class="testi-card">
                 <div class="testi-quote">"</div>
                 <p class="testi-text">"Jersey datang H-3 turnamen, jahitan rapi, warna persis mockup. Amanah banget, ngga kecewa."</p>
@@ -1413,7 +1338,6 @@
                 <div class="testi-name">Lukman</div>
                 <div class="testi-role">Event Organizer — Jakarta</div>
             </div>
-            @endforelse
         </div>
     </div>
 </section>
@@ -1427,7 +1351,7 @@
             <div>
                 <div class="section-label">Area Layanan</div>
                 <h2 class="area-title">
-                    Melayani <span class="orange">{{ $areaJersey->count() + $areaHijab->count() > 0 ? ($areaJersey->count() + $areaHijab->count()) . '+' : '12+' }} kota</span> di seluruh<br>Indonesia.
+                    Melayani <span class="orange">12+ kota</span> di seluruh<br>Indonesia.
                 </h2>
             </div>
             <p class="area-desc">
@@ -1439,46 +1363,30 @@
         <div class="area-group">
             <div class="area-group-label">Jersey Custom</div>
             <div class="area-tags">
-                @forelse($areaJersey as $area)
-                <a href="{{ $area->wa_url ?? 'https://wa.me/' . $waJersey . '?text=' . urlencode('Halo, saya dari ' . $area->kota . ' ingin order Jersey Custom') }}"
-                   target="_blank" class="area-tag">
-                    <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
-                    Jersey {{ $area->kota }}
-                </a>
-                @empty
                 @php
                 $jerseyKota = ['Jakarta','Bandung','Surabaya','Yogyakarta','Medan','Semarang','Makassar','Bekasi','Depok','Tangerang','Bogor','Bali'];
                 @endphp
                 @foreach($jerseyKota as $kota)
-                <a href="https://wa.me/{{ $waJersey }}?text={{ urlencode('Halo, saya dari ' . $kota . ' ingin order Jersey Custom') }}" target="_blank" class="area-tag">
+                <a href="https://wa.me/6281382805858?text=Halo, saya dari {{ $kota }} ingin order Jersey Custom" target="_blank" class="area-tag">
                     <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
                     Jersey {{ $kota }}
                 </a>
                 @endforeach
-                @endforelse
             </div>
         </div>
 
         <div class="area-group">
             <div class="area-group-label">Hijab Printing Custom</div>
             <div class="area-tags">
-                @forelse($areaHijab as $area)
-                <a href="{{ $area->wa_url ?? 'https://wa.me/' . $waHijab . '?text=' . urlencode('Halo, saya dari ' . $area->kota . ' ingin order Hijab Printing Custom') }}"
-                   target="_blank" class="area-tag">
-                    <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
-                    Hijab {{ $area->kota }}
-                </a>
-                @empty
                 @php
                 $hijabKota = ['Jakarta','Bandung','Surabaya','Yogyakarta','Medan','Semarang','Makassar','Bekasi','Depok','Tangerang','Bogor','Bali'];
                 @endphp
                 @foreach($hijabKota as $kota)
-                <a href="https://wa.me/{{ $waHijab }}?text={{ urlencode('Halo, saya dari ' . $kota . ' ingin order Hijab Printing Custom') }}" target="_blank" class="area-tag">
+                <a href="https://wa.me/6282345556927?text=Halo, saya dari {{ $kota }} ingin order Hijab Printing Custom" target="_blank" class="area-tag">
                     <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
                     Hijab {{ $kota }}
                 </a>
                 @endforeach
-                @endforelse
             </div>
         </div>
     </div>
@@ -1504,59 +1412,60 @@
                     tangan Anda.
                 </p>
                 <div class="trust-actions">
-                    <a href="https://wa.me/{{ $waHijab }}" target="_blank" class="btn btn-green" style="font-size:13px; padding:12px 18px;">
+                    <a href="https://wa.me/6282345556927" target="_blank" class="btn btn-green" style="font-size:13px; padding:12px 18px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.989.58 3.842 1.582 5.402L2 22l4.744-1.546A9.96 9.96 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2z"/></svg>
                         WA Double Z Scarve
                     </a>
-                    <a href="https://instagram.com/{{ $instagram }}" target="_blank" class="btn btn-outline" style="font-size:13px; padding:12px 18px;">
+                    <a href="https://instagram.com/dzscarve" target="_blank" class="btn btn-outline" style="font-size:13px; padding:12px 18px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        @{{ $instagram }}
+                        @dzscarve
                     </a>
                 </div>
             </div>
             <div>
-                {{-- Trust features dari DB (tampilkan 6 item) --}}
                 <div class="trust-features">
-                    @forelse($trustFeatures->take(6) as $tf)
                     <div class="trust-feature">
                         <div class="trust-feature-icon">
-                            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                         </div>
-                        <div class="trust-feature-name">{{ $tf->judul }}</div>
-                        <div class="trust-feature-desc">{{ $tf->deskripsi }}</div>
-                    </div>
-                    @empty
-                    <div class="trust-feature">
-                        <div class="trust-feature-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
                         <div class="trust-feature-name">Legalitas Usaha</div>
                         <div class="trust-feature-desc">Usaha resmi beroperasi dengan dokumen lengkap &amp; NPWP aktif.</div>
                     </div>
                     <div class="trust-feature">
-                        <div class="trust-feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div>
+                        <div class="trust-feature-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                        </div>
                         <div class="trust-feature-name">Sertifikat Merek DJKI</div>
                         <div class="trust-feature-desc">Brand hijab Double Z terdaftar resmi di Dirjen Kekayaan Intelektual.</div>
                     </div>
                     <div class="trust-feature">
-                        <div class="trust-feature-icon"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg></div>
+                        <div class="trust-feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+                        </div>
                         <div class="trust-feature-name">Alamat Workshop</div>
                         <div class="trust-feature-desc">Workshop fisik bisa dikunjungi langsung untuk verifikasi.</div>
                     </div>
                     <div class="trust-feature">
-                        <div class="trust-feature-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                        <div class="trust-feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
                         <div class="trust-feature-name">Garansi Produksi</div>
                         <div class="trust-feature-desc">Garansi jahitan &amp; hasil print sesuai mockup yang disetujui.</div>
                     </div>
                     <div class="trust-feature">
-                        <div class="trust-feature-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                        <div class="trust-feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                        </div>
                         <div class="trust-feature-name">WhatsApp Aktif 7 Hari</div>
                         <div class="trust-feature-desc">Respons cepat, tanpa skrip bot — langsung ditangani tim produksi.</div>
                     </div>
                     <div class="trust-feature">
-                        <div class="trust-feature-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+                        <div class="trust-feature-icon">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                        </div>
                         <div class="trust-feature-name">Data Desain Aman</div>
                         <div class="trust-feature-desc">Desain klien tidak dipublikasikan atau dipakai ulang.</div>
                     </div>
-                    @endforelse
                 </div>
 
                 <div class="djki-banner" style="margin-top: 4px;">
@@ -1591,42 +1500,52 @@
         </p>
 
         <div class="kontak-wa-grid">
-            <a href="https://wa.me/{{ $waJersey }}" target="_blank" class="kontak-wa">
+            <a href="https://wa.me/6281382805858" target="_blank" class="kontak-wa">
                 <div class="wa-icon">
                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.989.58 3.842 1.582 5.402L2 22l4.744-1.546A9.96 9.96 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2zm0 18.198a8.19 8.19 0 01-4.187-1.148l-.299-.178-3.108 1.015 1.039-3.008-.196-.31A8.196 8.196 0 013.8 12c0-4.519 3.679-8.198 8.198-8.198S20.196 7.481 20.196 12c0 4.519-3.679 8.198-8.198 8.198z"/></svg>
                 </div>
-                <div class="arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
                 <div class="cat">Jersey &amp; Textile</div>
                 <div class="wa-name">WhatsApp DZ Jersey Pro</div>
-                <div class="wa-num">+{{ $waJersey }}</div>
+                <div class="wa-num">+6281382805858</div>
             </a>
-            <a href="https://wa.me/{{ $waHijab }}" target="_blank" class="kontak-wa">
+            <a href="https://wa.me/6282345556927" target="_blank" class="kontak-wa">
                 <div class="wa-icon">
                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2C6.477 2 2 6.477 2 12c0 1.989.58 3.842 1.582 5.402L2 22l4.744-1.546A9.96 9.96 0 0011.998 22c5.523 0 10-4.477 10-10S17.521 2 11.998 2zm0 18.198a8.19 8.19 0 01-4.187-1.148l-.299-.178-3.108 1.015 1.039-3.008-.196-.31A8.196 8.196 0 013.8 12c0-4.519 3.679-8.198 8.198-8.198S20.196 7.481 20.196 12c0 4.519-3.679 8.198-8.198 8.198z"/></svg>
                 </div>
-                <div class="arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
                 <div class="cat">Hijab Printing</div>
                 <div class="wa-name">WhatsApp Double Z Scarve</div>
-                <div class="wa-num">+{{ $waHijab }}</div>
+                <div class="wa-num">+6282345556927</div>
             </a>
         </div>
 
         <div class="kontak-info-grid">
             <div class="kontak-info-item">
-                <div class="kontak-info-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <div class="kontak-info-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
                 <div class="kontak-info-cat">Email</div>
-                <a href="mailto:{{ $email }}" class="kontak-info-val">{{ $email }}</a>
+                <a href="mailto:cs@dzjerseypro.co.id" class="kontak-info-val">cs@dzjerseypro.co.id</a>
             </div>
             <div class="kontak-info-item">
-                <div class="kontak-info-icon"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg></div>
+                <div class="kontak-info-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+                </div>
                 <div class="kontak-info-cat">Workshop</div>
-                <a href="{{ $mapsUrl }}" target="_blank" class="kontak-info-val">Lihat di Google Maps</a>
+                <a href="https://maps.google.com" target="_blank" class="kontak-info-val">Lihat di Google Maps</a>
                 <div class="kontak-info-sub">Kunjungi langsung · verifikasi bebas</div>
             </div>
             <div class="kontak-info-item">
-                <div class="kontak-info-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+                <div class="kontak-info-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
                 <div class="kontak-info-cat">Instagram</div>
-                <a href="https://instagram.com/{{ $instagram }}" target="_blank" class="kontak-info-val">@{{ $instagram }}</a>
+                <a href="https://instagram.com/dzscarve" target="_blank" class="kontak-info-val">@dzscarve</a>
                 <div class="kontak-info-sub">Update produksi &amp; portfolio terbaru</div>
             </div>
         </div>
@@ -1636,7 +1555,7 @@
                 <div class="title">Butuh penawaran custom?</div>
                 <div class="sub">Isi form singkat — tim kami balas dalam 1x24 jam.</div>
             </div>
-            <a href="https://wa.me/{{ $waJersey }}" target="_blank" class="btn btn-orange">
+            <a href="https://wa.me/6281382805858" target="_blank" class="btn btn-orange">
                 Request Penawaran
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
             </a>
@@ -1648,7 +1567,7 @@
      FOOTER
 ═══════════════════════════════════════════════════ -->
 <footer>
-    <div class="copy">© {{ date('Y') }} {{ strtoupper($siteName) }} · DOUBLE Z SCARVE</div>
+    <div class="copy">© 2026 DZJERSEYPRO.CO.ID · DOUBLE Z SCARVE</div>
     <div class="tags">AMANAH · TERDAFTAR DJKI · PRODUKSI SENDIRI</div>
 </footer>
 
@@ -1660,19 +1579,21 @@
 document.getElementById('hamburgerBtn').addEventListener('click', function() {
     document.getElementById('mobileMenu').classList.toggle('open');
 });
+
+// Close mobile menu on nav link click
 document.querySelectorAll('#mobileMenu a').forEach(link => {
     link.addEventListener('click', () => {
         document.getElementById('mobileMenu').classList.remove('open');
     });
 });
 
-// ── Scroll ────────────────────────────────────────────
+// ── Scroll: active nav highlight ─────────────────────
 window.addEventListener('scroll', function() {
     const nav = document.getElementById('navbar');
     nav.style.borderBottomColor = window.scrollY > 20 ? '#2a2a2a' : 'transparent';
 });
 
-// ── Kalkulator — opsi bahan dari DB via API ───────────
+// ── Kalkulator ───────────────────────────────────────
 const serviceOptions = {
     jersey: [
         { label: 'Dry Fit — Rp 65.000/pcs', value: 65000 },
@@ -1694,25 +1615,13 @@ const serviceOptions = {
     ],
 };
 
-// Coba load dari API, fallback ke statis
-async function loadMaterials(service) {
-    try {
-        const res = await fetch(`/api/materials?service=${service}`);
-        if (!res.ok) throw new Error('api error');
-        const data = await res.json();
-        if (data && data.length > 0) return data.map(m => ({ label: `${m.nama} — Rp ${Number(m.harga).toLocaleString('id-ID')}/pcs`, value: m.harga }));
-    } catch (e) {}
-    return serviceOptions[service] || [];
-}
-
-async function switchService(btn) {
+function switchService(btn) {
     document.querySelectorAll('.kalk-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     const service = btn.dataset.service;
     const select = document.getElementById('kalkBahan');
-    const opts = await loadMaterials(service);
     select.innerHTML = '';
-    opts.forEach(opt => {
+    serviceOptions[service].forEach(opt => {
         const o = document.createElement('option');
         o.value = opt.value;
         o.textContent = opt.label;
@@ -1727,39 +1636,23 @@ function updateQty(val) {
 }
 
 function hitungEstimasi() {
-    const qty   = parseInt(document.getElementById('kalkSlider').value);
+    const qty = parseInt(document.getElementById('kalkSlider').value);
     const harga = parseInt(document.getElementById('kalkBahan').value);
 
-    let disc = 0, discLabel = '';
-    if      (qty >= 100) { disc = 0.10; discLabel = 'Sudah termasuk diskon 10% (100+ pcs)'; }
-    else if (qty >= 50)  { disc = 0.07; discLabel = 'Sudah termasuk diskon 7% (50+ pcs)'; }
-    else if (qty >= 24)  { disc = 0.05; discLabel = 'Sudah termasuk diskon 5% (24+ pcs)'; }
-    else                 { discLabel = 'Pesan 24+ pcs untuk dapat diskon'; }
+    let disc = 0;
+    let discLabel = '';
+    if (qty >= 100) { disc = 0.10; discLabel = 'Sudah termasuk diskon 10% (100+ pcs)'; }
+    else if (qty >= 50) { disc = 0.07; discLabel = 'Sudah termasuk diskon 7% (50+ pcs)'; }
+    else if (qty >= 24) { disc = 0.05; discLabel = 'Sudah termasuk diskon 5% (24+ pcs)'; }
+    else { discLabel = 'Pesan 24+ pcs untuk dapat diskon'; }
 
-    const total     = Math.round(qty * harga * (1 - disc));
+    const total = Math.round(qty * harga * (1 - disc));
     const formatted = 'Rp ' + total.toLocaleString('id-ID');
 
     document.getElementById('resultPrice').textContent = formatted;
-    document.getElementById('resultNote').textContent  = discLabel + ' · Harga belum termasuk desain & ongkir';
+    document.getElementById('resultNote').textContent = discLabel + ' · Harga belum termasuk desain & ongkir';
     document.getElementById('kalkResult').classList.add('show');
 }
-
-// Init kalkulator saat load
-(async () => {
-    const firstTab = document.querySelector('.kalk-tab.active');
-    if (firstTab) {
-        const service = firstTab.dataset.service;
-        const opts = await loadMaterials(service);
-        const select = document.getElementById('kalkBahan');
-        select.innerHTML = '';
-        opts.forEach(opt => {
-            const o = document.createElement('option');
-            o.value = opt.value;
-            o.textContent = opt.label;
-            select.appendChild(o);
-        });
-    }
-})();
 
 // ── Fade-in on scroll ─────────────────────────────────
 const fadeEls = document.querySelectorAll('.fade-in');
@@ -1768,13 +1661,14 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 fadeEls.forEach(el => observer.observe(el));
 
-// ── Smooth scroll ─────────────────────────────────────
+// ── Smooth scroll for anchor links ───────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             e.preventDefault();
-            window.scrollTo({ top: target.offsetTop - 64, behavior: 'smooth' });
+            const offset = 64;
+            window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
         }
     });
 });

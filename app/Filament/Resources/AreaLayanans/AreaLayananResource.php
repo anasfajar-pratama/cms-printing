@@ -13,14 +13,45 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 
 class AreaLayananResource extends Resource
 {
     protected static ?string $model = AreaLayanan::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMapPin;
 
-    protected static ?string $recordTitleAttribute = 'Arealayanan';
+    protected static ?string $recordTitleAttribute = 'kota';
+
+    public static function getNavigationIcon(): string|Htmlable|BackedEnum|null
+    {
+        return 'heroicon-o-map-pin';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Area Layanan';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Homepage';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 8;
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Area Layanan';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Daftar Area Layanan';
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -34,17 +65,15 @@ class AreaLayananResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListAreaLayanans::route('/'),
+            'index'  => ListAreaLayanans::route('/'),
             'create' => CreateAreaLayanan::route('/create'),
-            'edit' => EditAreaLayanan::route('/{record}/edit'),
+            'edit'   => EditAreaLayanan::route('/{record}/edit'),
         ];
     }
 }

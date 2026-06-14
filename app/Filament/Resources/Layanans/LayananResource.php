@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 
 class LayananResource extends Resource
 {
@@ -20,7 +21,37 @@ class LayananResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Layanan';
+    protected static ?string $recordTitleAttribute = 'nama';
+
+    public static function getNavigationIcon(): string|Htmlable|BackedEnum|null
+    {
+        return 'heroicon-o-wrench-screwdriver';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Layanan';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Homepage';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 2;
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Layanan';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Daftar Layanan';
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -34,17 +65,15 @@ class LayananResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListLayanans::route('/'),
+            'index'  => ListLayanans::route('/'),
             'create' => CreateLayanan::route('/create'),
-            'edit' => EditLayanan::route('/{record}/edit'),
+            'edit'   => EditLayanan::route('/{record}/edit'),
         ];
     }
 }
