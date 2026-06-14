@@ -2,7 +2,7 @@
     <form wire:submit="save">
         {{ $this->form }}
         <div class="mt-6">
-            <x-filament::button type="submit">
+            <x-filament::button type="submit" icon="heroicon-o-check">
                 Simpan Settings
             </x-filament::button>
         </div>
